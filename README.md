@@ -12,6 +12,7 @@ Kubernetesの検証の為、サンプル用のapiを作成。
 ### 前提
 
 * Java 11.x
+* Docker Desktop インストール済み
 
 ### アプリケーションのビルド
 
