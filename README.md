@@ -70,3 +70,39 @@ $ docker run -p 9000:9000 demo:app
 
 * 下記URLを開き、「GET: /hello」をtry it outして動作検証
   * http://localhost:9000/swagger-ui/index.html
+
+
+### Kubernetes上での実行
+
+#### Kubernetesのインストール
+
+* Docker Desktop据え置きのKubernetesを使用。
+  * https://matsuand.github.io/docs.docker.jp.onthefly/desktop/kubernetes/
+  * マシンのスペックによっては有効化できないかもしれないので注意。
+  * CPU Intel Corei5 メモリ8GBで有効化できたが、かなり重い。。
+
+* Dockerのk8sを動かせない場合はMinikubeやk3sのインストールを試してみよう
+  * Minikube
+    * https://minikube.sigs.k8s.io/docs/start/
+  * k3s
+    * https://k3s.io/
+
+
+#### アプリの起動
+
+* コマンド実行
+
+```sh
+$ kubectl apply -f k8s.yaml
+```
+
+* 下記URLを開き、「GET: /hello」をtry it outして動作検証
+  * http://localhost:5000/swagger-ui/index.html
+
+#### アプリの停止
+
+* コマンド実行
+
+```sh
+$ kubectl delete -f k8s.yaml
+```
