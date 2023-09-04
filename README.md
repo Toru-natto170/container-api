@@ -5,7 +5,6 @@ HelloWorldレベルのSpring Boot Rest API サンプル。
 ## 背景
 
 Kubernetesの検証の為、サンプル用のapiを作成。  
-まずはDockerでコンテナビルドできるところまで
 
 ## 動作確認
 
