@@ -7,7 +7,7 @@ HelloWorldレベルのSpring Boot Rest API サンプル。
 Kubernetesの検証の為、サンプル用のapiを作成。  
 まずはDockerでコンテナビルドできるところまで
 
-## 動作確認
+## ローカル動作確認
 
 ### 前提
 
@@ -18,7 +18,7 @@ Kubernetesの検証の為、サンプル用のapiを作成。
 * コマンド実行
 
 ```sh
-$ gradlew clean build
+$ ./gradlew clean build
 ```
 
 ### ローカル実行
@@ -26,12 +26,44 @@ $ gradlew clean build
 * コマンド実行
 
 ```sh
-$ gradlew bootRun 
+$ ./gradlew bootRun 
 ```
 
 * 下記URLを開き、「GET: /hello」をtry it outして動作検証
   * http://localhost:9000/swagger-ui/index.html
 
-### コンテナとしてビルド
+### 実行可能アーカイブ（JAR）作成・実行
 
-TODO
+* 実行可能JAR作成 
+
+```sh
+$ ./gradlew clean bootJar
+```
+
+* JARの実行
+
+```sh
+$ java -jar ./build/libs/container-api-0.0.1-SNAPSHOT.jar
+```
+
+## コンテナとしての動作確認
+
+### コンテナビルド
+
+* コマンド実行
+
+```sh
+$ docker build -t demo:app .
+```
+
+### コンテナ実行
+
+* コマンド実行
+
+```sh
+$ docker run -p 9000:9000 demo:app
+```
+
+
+* 下記URLを開き、「GET: /hello」をtry it outして動作検証
+  * http://localhost:9000/swagger-ui/index.html
