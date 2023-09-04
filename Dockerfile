@@ -3,7 +3,7 @@ COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle build --no-daemon
 
-FROM adoptopenjdk/openjdk11:ubi
+FROM adoptopenjdk/openjdk11:alpine
 
 EXPOSE 9000
 
